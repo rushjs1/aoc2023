@@ -17,4 +17,6 @@ let day2answer = await day2();
 console.log("Day 2 answer:", day2answer); //2204
 
 /* day 3 */
-day3();
+let day3Answer = await day3();
+
+console.log("day 3 answer:", day3Answer);
