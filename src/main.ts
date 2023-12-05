@@ -1,6 +1,8 @@
 //import { day1 } from "./days/day1";
 import { day2 } from "./days/day2";
 import { day3 } from "./days/day3";
+import { day4 } from "./days/day4";
+
 //import { calibrationValues } from "./data/calibrationValues";
 
 /* day 1  */
@@ -19,4 +21,9 @@ console.log("Day 2 answer:", day2answer); //2204
 /* day 3 */
 let day3Answer = await day3();
 
-console.log("day 3 answer:", day3Answer);
+console.log("day 3 answer:", day3Answer); //never got it
+
+/* day 4 */
+let day4Answer = await day4();
+
+console.log("day 4 answer:", day4Answer); // 18653

@@ -21,16 +21,14 @@ export async function day3() {
 }
 
 function parseData(data: string) {
-  console.log(data);
-
   const numberOfLines = data.split(/\r\n|\r|\n/).length - 1;
 
   const charsPerLine = data.length / numberOfLines;
 
-  console.log(numberOfLines, "numberOfLines");
+  /* console.log(numberOfLines, "numberOfLines");
   console.log(charsPerLine, "charsPerLine");
 
-  console.log(data[286], "foo");
+  console.log(data[286], "foo"); */
 
   let formattedData = [];
 
@@ -119,9 +117,8 @@ function findPartNumbers(
     lineInfo[i].symbolInfo.forEach((symbol) => {
       lineInfo[i].numbers.forEach((number) => {
         //are within 1
-
         //handle Right and left
-        if (isWithinRange(number.idx, symbol.index, 4)) {
+        if (isWithinRange(number.idx, symbol.index, 3)) {
           //check right
           if (lineInfo[i]?.line[symbol.index + 1] !== ".") {
             if (!number.included) {
@@ -181,7 +178,7 @@ function findPartNumbers(
       });
     });
 
-    console.log(lineInfo[i]);
+    //console.log(lineInfo[i]);
   }
 }
 
