@@ -49,10 +49,12 @@ function parseData(data: string) {
 
   let lineInfo: Array<{
     line: string;
+    lineIndex: number;
     partNumbers: number[];
     lineTotal: number;
     numbers: Array<{
       idx: number | undefined;
+      lineIndex: number;
       number: number;
       length: number;
       included: boolean;
@@ -60,8 +62,8 @@ function parseData(data: string) {
     symbolInfo: Array<{ symbol: string; index: number }>;
   }> = [];
 
-  formattedData.forEach((line) => {
-    lineInfo.push(parseLine(line));
+  formattedData.forEach((line, index) => {
+    lineInfo.push(parseLine(line, index));
   });
 
   findPartNumbers(lineInfo);
@@ -114,70 +116,6 @@ function findPartNumbers(
   }>,
 ) {
   for (let i = 0; i < lineInfo.length; i++) {
-    lineInfo[i].symbolInfo.forEach((symbol) => {
-      lineInfo[i].numbers.forEach((number) => {
-        //are within 1
-        //handle Right and left
-        if (isWithinRange(number.idx, symbol.index, 3)) {
-          //check right
-          if (lineInfo[i]?.line[symbol.index + 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-
-          //check left
-          if (lineInfo[i]?.line[symbol.index - 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-        }
-      });
-
-      lineInfo[i + 1]?.numbers.forEach((number) => {
-        if (isWithinRange(number.idx, symbol.index, 4)) {
-          //check right
-          if (lineInfo[i + 1]?.line[symbol.index + 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i + 1]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-
-          //check left
-          if (lineInfo[i + 1]?.line[symbol.index - 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i + 1]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-        }
-      });
-
-      lineInfo[i - 1]?.numbers.forEach((number) => {
-        if (isWithinRange(number.idx, symbol.index, 4)) {
-          //check right
-          if (lineInfo[i - 1]?.line[symbol.index + 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i - 1]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-
-          //check left
-          if (lineInfo[i - 1]?.line[symbol.index - 1] !== ".") {
-            if (!number.included) {
-              lineInfo[i - 1]?.partNumbers.push(number.number);
-              number.included = true;
-            }
-          }
-        }
-      });
-    });
-
     //console.log(lineInfo[i]);
   }
 }
@@ -186,7 +124,7 @@ function isWithinRange(a: number | undefined, b: number, range: number) {
   return Math.abs((a as number) - b) <= range;
 }
 
-function parseLine(line: string) {
+function parseLine(line: string, index: number) {
   const symbols = [
     "*",
     "#",
@@ -221,6 +159,7 @@ function parseLine(line: string) {
     idx: number | undefined;
     number: number;
     length: number;
+    lineIndex: number;
     included: boolean;
   }> = [];
 
@@ -230,6 +169,7 @@ function parseLine(line: string) {
   while ((match = numRegex.exec(line)) !== null) {
     numbers.push({
       idx: match.index,
+      lineIndex: index,
       number: parseInt(match[0]),
       length: match[0].toString().length,
       included: false,
@@ -238,6 +178,7 @@ function parseLine(line: string) {
 
   return {
     line,
+    index,
     partNumbers: [],
     numbers,
     lineTotal: 0,

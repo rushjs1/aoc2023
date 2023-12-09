@@ -1,7 +1,12 @@
+import "./style.css";
+
 //import { day1 } from "./days/day1";
+//import { day5 } from "./days/day5";
+
 import { day2 } from "./days/day2";
 import { day3 } from "./days/day3";
 import { day4 } from "./days/day4";
+import { day6 } from "./days/day6";
 
 //import { calibrationValues } from "./data/calibrationValues";
 
@@ -27,3 +32,10 @@ console.log("day 3 answer:", day3Answer); //never got it
 let day4Answer = await day4();
 
 console.log("day 4 answer:", day4Answer); // 18653
+
+/* day 5 */
+//day5() // never got it;
+
+/* day 6 */
+let day6Answer = await day6();
+console.log("day 6 answer:", day6Answer); // 633080
