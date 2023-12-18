@@ -1,4 +1,32 @@
 body,
 html {
-  background-color: hsl(0, 0%, 15%);
+  background-color: hsl(237, 39%, 10%);
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Source Code Pro", "monospace";
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  color: #00cc00;
+  text-shadow:
+    0 0 2px #00cc00,
+    0 0 5px #00cc00;
+  text-decoration: none;
+  letter-spacing: 0.15rem;
+}
+.title:hover {
+  color: #99ff99;
+}
+
+.star {
+  color: hsl(60, 89%, 68%);
 }

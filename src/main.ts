@@ -1,4 +1,5 @@
 import "./style.css";
+import "./stars";
 
 //import { day1 } from "./days/day1";
 //import { day5 } from "./days/day5";
@@ -7,6 +8,7 @@ import { day2 } from "./days/day2";
 import { day3 } from "./days/day3";
 import { day4 } from "./days/day4";
 import { day6 } from "./days/day6";
+import { day7 } from "./days/day7";
 
 //import { calibrationValues } from "./data/calibrationValues";
 
@@ -39,3 +41,7 @@ console.log("day 4 answer:", day4Answer); // 18653
 /* day 6 */
 let day6Answer = await day6();
 console.log("day 6 answer:", day6Answer); // 633080
+
+/* day 7 */
+let day7Answer = await day7();
+console.log("day 7 answer:", day7Answer); // never got it :(
