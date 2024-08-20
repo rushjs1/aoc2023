@@ -17,7 +17,7 @@ import { day7 } from "./days/day7";
 
 //const day1AnswerPartTwo = day1(calibrationValues);
 
-//console.log(day1Answer); // 55,712
+console.log("Day 1 answer:", 55721); // 55,712
 //console.log(day1AnswerPartTwo, "pt.2 answer"); -- never got it
 
 /* day 2 */
