@@ -1,7 +1,7 @@
 export async function day2() {
   let answer;
   try {
-    const res = await fetch("../../public/day2.txt");
+    const res = await fetch("/2023/day2.txt");
 
     if (!res.ok) {
       throw new Error("Failed to load file");

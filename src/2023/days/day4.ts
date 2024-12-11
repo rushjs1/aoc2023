@@ -3,7 +3,7 @@ export async function day4() {
   let answer;
 
   try {
-    let res = await fetch("../../public/day4.txt");
+    let res = await fetch("/2023/day4.txt");
 
     if (!res.ok) {
       throw new Error("Failed to load data.");

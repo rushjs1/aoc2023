@@ -2,7 +2,7 @@ export async function day6() {
   console.log("day 6");
   let answer;
   try {
-    let res = await fetch("../../public/day6.txt");
+    let res = await fetch("/2023/day6.txt");
 
     let data = await res.text();
 

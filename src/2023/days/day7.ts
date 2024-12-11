@@ -3,7 +3,7 @@ export async function day7() {
 
   let answer;
   try {
-    let res = await fetch("../../public/day7.txt");
+    let res = await fetch("/2023/day7.txt");
     let data = await res.text();
 
     answer = parseData(data);

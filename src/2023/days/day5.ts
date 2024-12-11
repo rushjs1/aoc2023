@@ -1,6 +1,6 @@
 export async function day5() {
   try {
-    let res = await fetch("../../public/day5.txt");
+    let res = await fetch("/2023/day5.txt");
 
     if (!res.ok) {
       throw new Error("Failed to load file.");
